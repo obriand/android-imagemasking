@@ -16,7 +16,9 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
@@ -25,9 +27,15 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		View iv = new IconView(this);
-		RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
-		mainLayout.addView(iv);
+		HeroImageView iv = (HeroImageView)findViewById(R.id.hero_item_hiv);
+		iv.setImageResource(R.drawable.igadget);
+		
+		TextView tv = (TextView)findViewById(R.id.hero_name_tv);
+		tv.setText(R.string.hello_world);
+		
+//		View iv = new IconView(this);
+//		RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
+//		mainLayout.addView(iv);
 	}
 
 	@Override
@@ -37,7 +45,8 @@ public class MainActivity extends Activity {
 		return true;
 	}
 	
-    private class IconView extends View {
+    // Class IconView from View
+	private class IconView extends View {
     	 
         private final Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
  
@@ -70,13 +79,16 @@ public class MainActivity extends Activity {
             canvas.translate((getWidth() - mIcon.getWidth()) >> 1, (getHeight() - mIcon.getHeight()) >> 1);
  
             // We're now ready to drawn our iPhone-like icon :)
-            canvas.drawBitmap(mIcon, 0, 0, null);
+            //canvas.drawBitmap(mIcon, 0, 0, null);
             //canvas.drawBitmap(mIconGlossy, 0, 0, null);
-            canvas.drawBitmap(mIconMask, 0, 0, mPaint);
+            
+            Bitmap mIconScaledMask = mIconMask.createScaledBitmap(mIconMask, mIcon.getWidth(), mIcon.getHeight(), true);
+            
+            canvas.drawBitmap(mIconScaledMask, 0, 0, mPaint);
  
             canvas.restore();
         }
  
     }
-
+	
 }
