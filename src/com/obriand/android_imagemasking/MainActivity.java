@@ -66,7 +66,7 @@ public class MainActivity extends Activity {
             final Resources res = context.getResources();
             mIcon = BitmapFactory.decodeResource(res, R.drawable.igadget);
             //mIconGlossy = BitmapFactory.decodeResource(res, R.drawable.icon_glossy);
-            mIconMask = BitmapFactory.decodeResource(res, R.drawable.vignette_hero_01);
+            mIconMask = BitmapFactory.decodeResource(res, R.drawable.vignette_hero_02);
         }
  
         @Override
@@ -82,9 +82,9 @@ public class MainActivity extends Activity {
             //canvas.drawBitmap(mIcon, 0, 0, null);
             //canvas.drawBitmap(mIconGlossy, 0, 0, null);
             
-            Bitmap mIconScaledMask = mIconMask.createScaledBitmap(mIconMask, mIcon.getWidth(), mIcon.getHeight(), true);
+            //Bitmap mIconScaledMask = mIconMask.createScaledBitmap(mIconMask, 200, 200, true);
             
-            canvas.drawBitmap(mIconScaledMask, 0, 0, mPaint);
+            canvas.drawBitmap(mIconMask, 0, 0, mPaint);
  
             canvas.restore();
         }
