@@ -15,6 +15,17 @@
         android:contentDescription="@string/hero_iv_desc"
         android:scaleType="centerCrop"/-->
     
+    <LinearLayout 
+        xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+    	android:id="@+id/imageLayout" 
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+    	android:background="@drawable/fond_vignette_hero_02"
+    	android:padding="@dimen/padding_medium">
+    
     <com.obriand.android_imagemasking.HeroImageView
         android:id="@+id/hero_item_hiv"
         android:layout_width="150dp"
@@ -22,13 +33,16 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/hero_iv_desc"
+        android:background="@drawable/fond_vignette_hero_02"
         android:scaleType="centerCrop"/>
+    
+    </LinearLayout>
 
     <TextView
         android:id="@+id/hero_name_tv"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/hero_item_hiv"
+        android:layout_below="@id/imageLayout"
         android:minLines="3"
         android:maxLines="3"
         android:gravity="center"
